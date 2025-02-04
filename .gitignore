@@ -31,5 +31,5 @@
 !broot/**
 !broot/
 
-!scripts/*
+!scripts/**
 !scripts/

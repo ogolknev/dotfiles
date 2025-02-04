@@ -34,4 +34,6 @@
 !scripts/**
 !scripts/
 
+!*.zshrc
+
 btop/btop.log

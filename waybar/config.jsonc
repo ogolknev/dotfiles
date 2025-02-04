@@ -1,0 +1,174 @@
+{
+    "layer": "top",
+    "height": 30,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 10,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray",
+        "mpris"
+    ],
+    "modules-center": [
+        "clock",
+        "cpu",
+        "custom/gpu",
+        "memory",
+        "temperature"
+    ],
+    "modules-right": [
+        "custom/screen-record",
+        "power-profiles-daemon",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "backlight",
+        "hyprland/language",
+        "battery",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "98": "",
+            "99": "󰍡",
+            "100": "",
+            "default": "•",
+            "active": ""
+        },
+        "persistent-workspaces": {
+            "*": 4
+        }
+    },
+    "hyprland/language": {
+        "format-en": "en 󰌌",
+        "format-ru": "ru 󰌌"
+    },
+    "mpris": {
+        "format": "{status_icon} {title} - {artist}",
+        "title-len": 15,
+        "artist-len": 15,
+        "format-stopped": "{status_icon}",
+        "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": ""
+        }
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% ",
+        "tooltip": false,
+        "on-click": "$TERMINAL -e btop"
+    },
+    "memory": {
+        "interval": 1,
+        "format": "{}% ",
+        "on-click": "$TERMINAL -e btop"
+    },
+    "custom/gpu": {
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "format": "{}% ",
+        "on-click": "$TERMINAL -e btop",
+        "interval": 1
+    },
+    "custom/screen-record": {
+        "exec": "[ -f $HOME/.cache/screen-record/pid.tmp ] && echo  || echo",
+        "hide-empty-text": true,
+        "format": "{}",
+        "interval": 1
+    },
+    "temperature": {
+        "critical-threshold": 70,
+        "interval": 1,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "󰈸"
+        ],
+        "on-click": "$TERMINAL -e btop"
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 1,
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰾅",
+            "performance": "󰓅",
+            "balanced": "󰾅",
+            "power-saver": "󰾆"
+        }
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "",
+        "format-disconnected": "Disconnected ",
+        "tooltip-format": "speed:  {bandwidthDownBytes}  {bandwidthUpBytes}\nip: {ipaddr}"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "on-click": "bt toggle",
+        "on-click-right": "bt connect",
+        "on-click-middle": "bluetoothctl disconnect.sh"
+    },
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": "",
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "powermenu.sh"
+    }
+}

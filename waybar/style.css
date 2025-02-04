@@ -1,0 +1,234 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    font-size: 12px;
+    text-shadow: none;
+    border: none;
+}
+
+@define-color black #1a1a1a;
+@define-color black-light #262626;
+@define-color gray #424242;
+@define-color gray-light #5c5c5c;
+@define-color red #f64c4c;
+@define-color red-light #f76e6e;
+@define-color green #1ae54d;
+@define-color green-light #5eed82;
+@define-color yellow #f6e423;
+@define-color yellow-light #f9ed6c;
+@define-color blue #5086f1;
+@define-color blue-light #76a0f4;
+@define-color purple #6835e9;
+@define-color purple-light #835aed;
+@define-color cyan #1fd6d6;
+@define-color cyan-light #5ae7e7;
+@define-color white #dedede;
+@define-color white-light #f0f0f0;
+
+@define-color accent @purple;
+@define-color success @green;
+@define-color warning @yellow;
+@define-color danger @red;
+@define-color bg @black;
+@define-color highlight @white;
+@define-color text @white;
+@define-color text-disabled @gray-light;
+@define-color text-dark @black;
+@define-color border @gray;
+
+
+@keyframes danger-blink {
+    to {
+        color: @danger;
+        box-shadow: inset 0 0 0 1px @danger;
+    }
+}
+
+window#waybar {
+    background-color: transparent;
+    border: none;
+    color: @text;
+}
+
+tooltip {
+    background-color: @bg;
+    box-shadow: inset 0 0 0 1px @border;
+    border-radius: 20px;
+}
+
+#workspaces,
+#mpris,
+#clock,
+#battery,
+#power-profiles-daemon,
+#cpu,
+#custom-gpu,
+#memory,
+#backlight,
+#network,
+#bluetooth,
+#pulseaudio,
+#temperature,
+#tray,
+#language,
+#custom-power,
+#custom-screen-record {
+    padding: 8px 16px;
+    background-color: @bg;
+    box-shadow: inset 0 0 0 1px @border;
+    border-radius: 15px;
+}
+
+#workspaces {
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    margin: 6px 4px;
+    padding: 0px 4px;
+    background-color: transparent;
+    border-radius: 15px;
+    color: @text;
+}
+
+#workspaces button:hover {
+    background: @border;
+}
+
+#workspaces button.active {
+    background-color: @highlight;
+    color: @text-dark;
+}
+
+#workspaces button.urgent {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#workspaces button.urgent:hover {
+    background: transparent;
+}
+
+#mpris.playing {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+}
+
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @success;
+    box-shadow: inset 0 0 0 1px @success;
+}
+
+#battery.critical:not(.charging) {
+    color: @text-disabled;
+    box-shadow: inset 0 0 0 1px @border;
+    animation-name: danger-blink;
+    animation-duration: 400ms;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding: 0 12px;
+}
+
+#power-profiles-daemon.performance {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+}
+
+#power-profiles-daemon.balanced {
+    color: @text;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @success;
+    box-shadow: inset 0 0 0 1px @success;
+}
+
+#network {
+    padding: 0 11px;
+}
+
+#network.disconnected {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+}
+
+#bluetooth {
+    padding: 0 15px;
+    color: @text-disabled;
+}
+
+#bluetooth.off {
+    padding: 0 14px;
+}
+
+#bluetooth.on {
+    padding: 0 15px;
+    color: @text;
+}
+
+#bluetooth.connected {
+    padding: 0 13px;
+    color: @success;
+    box-shadow: inset 0 0 0 1px @success;
+}
+
+
+#pulseaudio.muted {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+}
+
+#wireplumber.muted {
+    background-color: @warning;
+}
+
+#temperature.critical {
+    color: @warning;
+    box-shadow: inset 0 0 0 1px @warning;
+}
+
+#tray {
+    padding: 0px 14px;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @warning;
+}
+
+#custom-power {
+    padding: 0 13px;
+}
+
+#custom-screen-record {
+    padding: 0 12px;
+    color: @danger;
+    box-shadow: inset 0 0 0 1px @danger;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

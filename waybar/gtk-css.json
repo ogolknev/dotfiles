@@ -1,0 +1,12 @@
+{
+  "atDirectives": [
+    {
+      "name": "@define-color",
+      "description": "Defines a color for GTK themes."
+    },
+    {
+      "name": "@define-size",
+      "description": "Defines a size for GTK themes."
+    }
+  ]
+}

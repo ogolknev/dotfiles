@@ -1,0 +1,58 @@
+### global ###
+max-history=100
+sort=-priority
+
+### binding ###
+on-button-left=invoke-default-action
+on-button-middle=exec makoctl menu -n "$id" fuzzel --dmenu -p "Select action: "
+on-button-right=dismiss
+on-notify=exec aplay .local/share/sounds/predosteregayuschiy-zvuk-ustanovki-opasnoy-programmyi.wav
+
+### style ###
+font=JetBrainsMono Nerd Font Propo 10
+background-color=#131313ff
+text-color=#f2f2f2ff
+width=500
+height=250
+outer-margin=10
+margin=5
+padding=20
+border-size=1
+border-color=#333333ff
+border-radius=25
+progress-color=over #33333377
+icons=1
+max-icon-size=64
+icon-path=""
+icon-location=left
+markup=1
+actions=1
+history=1
+format=<big><b>%s</b></big> <span size="8pt" alpha="30000">%a</span>\n<span>%b</span>
+text-alignment=left
+default-timeout=10000
+ignore-timeout=0
+group-by=none
+max-visible=8
+output=""
+layer=overlay
+anchor=top-center
+
+[category="osd"]
+on-notify=none
+
+[category="system"]
+on-notify=none
+
+[app-name="osd-fn-lock"]
+format=<span size="20pt" >%s</span>
+text-alignment=center
+width=130
+
+[app-name="osd-volume"]
+format=<span size="14pt">%s</span> <span size="14pt">%b</span>
+text-alignment=center
+
+[app-name="osd-brightness"]
+format=<span size="14pt">%s</span> <span size="14pt">%b</span>
+text-alignment=center

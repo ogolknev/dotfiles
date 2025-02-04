@@ -33,3 +33,5 @@
 
 !scripts/**
 !scripts/
+
+btop/btop.log
